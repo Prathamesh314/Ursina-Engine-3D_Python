@@ -4,5 +4,7 @@
 #### Here is the sample video for it
 
 <figure class="video_container">
-  <iframe src="tictactoe.mp4" frameborder="0" allowfullscreen="true"> </iframe>
+  <video controls="true" allowfullscreen="true" poster="path/to/poster_image.png">
+    <source src="tictactoe.mp4" type="mp4">
+  </video>
 </figure>
