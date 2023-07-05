@@ -3,4 +3,4 @@
 
 #### Here is the sample video for it
 
-<video src="tictactoe.mp4" />
+<iframe src="tictactoe.mp4" />
