@@ -3,8 +3,4 @@
 
 #### Here is the sample video for it
 
-<figure>
-  <video controls="true" allowfullscreen="true">
-    <source src="tictactoe.mp4" type="video/mp4">
-  </video>
-</figure>
+C:\Users\kurve\Documents\GitHub\Ursina-Engine\TicTacToe[Ursina engine]\tictactoe.mp4
