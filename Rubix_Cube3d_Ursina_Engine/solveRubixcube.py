@@ -1,4 +1,4 @@
-import kociemba
+# import kociemba
 
 def proximity(pos,target):
     delta = 0.2
@@ -140,9 +140,9 @@ def decode_position(cube):
             value[53] = color_detect(tile.color)
     return value
 
-def solve(cube):
-    values = ""
-    values = values.join(decode_position(cube))
-    solution = kociemba.solve(values)
-    print(f"Solution is {solution}")
-    return solution
+# def solve(cube):
+#     values = ""
+#     values = values.join(decode_position(cube))
+#     solution = kociemba.solve(values)
+#     print(f"Solution is {solution}")
+#     return solution

@@ -162,4 +162,81 @@ class Rubic_Cube():
     def rotate_bottom_clock(self):
         if self.rotate[0] == None:
             self.rotate = ['bottom_clock',0,np.pi/2]  
-       
+    
+    def move(self):
+        possible_moves = ["F", "R", "B", "L", "U", "D", "F'", "R'", "B'", "L'", "U'", "D'"]
+        if self.rotate[0] == None and len(self.moves) > 0:
+            if self.moves[0] == possible_moves[0]:
+                self.rotate_front_clock()
+            elif self.moves[0] == possible_moves[1]:
+                self.rotate_right_clock()
+            elif self.moves[0] == possible_moves[2]:
+                self.rotate_back_clock()
+            elif self.moves[0] == possible_moves[3]:
+                self.rotate_left_clock()
+            elif self.moves[0] == possible_moves[4]:
+                self.rotate_top_clock()
+            elif self.moves[0] == possible_moves[5]:
+                self.rotate_bottom_clock()
+            elif self.moves[0] == possible_moves[6]:
+                self.rotate_front_counter()
+            elif self.moves[0] == possible_moves[7]:
+                self.rotate_right_counter()
+            elif self.moves[0] == possible_moves[8]:
+                self.rotate_back_counter()
+            elif self.moves[0] == possible_moves[9]:
+                self.rotate_left_counter()
+            elif self.moves[0] == possible_moves[10]:
+                self.rotate_top_counter()
+            elif self.moves[0] == possible_moves[11]:
+                self.rotate_bottom_counter()
+            self.moves.pop(0)
+    def scramble(self):
+        possible_moves = ["F","R","B","L","U","D","F'","R'","B'","L'","U'","D'"]
+        for i in range(25):
+            self.moves.append(random.choice(possible_moves))
+    
+    # def solution(self):
+    #     solve(self.tiles)
+    
+    # def solve(self):
+    #     values = solve(self.tiles)
+    #     values = list(values.split(" "))
+    #     for value in values:
+    #         lis_value = list(value)
+    #         if lis_value[-1] == '2':
+    #             lis_value.pop(-1)
+    #             value = ''.join(lis_value)
+    #             self.moves.append(value)
+    #             self.moves.append(value)
+    #         else:
+    #             self.moves.append(value)
+    
+
+    def control(self):
+        button(bind=self.rotate_front_clock, text='F')
+        button(bind=self.rotate_front_counter,text="F'")
+        button(bind=self.rotate_right_clock, text='R')
+        button(bind=self.rotate_right_counter, text="R'")
+        button(bind=self.rotate_back_clock, text='B')
+        button(bind=self.rotate_back_counter, text="B'")
+        button(bind=self.rotate_left_clock, text='L')
+        button(bind=self.rotate_left_counter, text="L'")
+        button(bind=self.rotate_top_clock, text='U')
+        button(bind=self.rotate_top_counter, text="U'")
+        button(bind=self.rotate_bottom_clock, text='D')
+        button(bind=self.rotate_bottom_counter, text="D'")
+        button(bind=self.scramble, text='random_move')
+        # button(bind=self.solution, text='solution')
+        # button(bind=self.solve, text='solve it!')
+    
+    def update(self):
+        rate(60)
+        self.animations()
+        self.move()
+    
+    def start(self):
+        self.reset_positions()
+        self.control()
+        while self.running:
+            self.update()
